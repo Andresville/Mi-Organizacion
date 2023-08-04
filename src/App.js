@@ -4,11 +4,23 @@ import Header from './componentes/Header/Header';
 import Formulario from './componentes/Formulario/Formulario';
 import MiOrganizacion from './componentes/MiOrganizacion/MiOrganizacion';
 import Equipos from './componentes/Equipos/Equipos';
+import Footer from './componentes/Footer/Footer';
 
 function App() {
+
   const [mostrarFormulario, actualizarMostrar] = useState(true)
+  const [colaboradores, actualizarColaboradores] = useState([])
+
   const cambiarMostrar = () => {
     actualizarMostrar(!mostrarFormulario)
+  }
+
+  //Registrar Colaborador
+
+  const registrarColaborador = (colaborador) =>{
+    console.log("Colaborador", colaborador)
+    //Spread operator
+    actualizarColaboradores([... colaboradores, colaborador])
   }
 
   const equipos = [
@@ -55,11 +67,16 @@ function App() {
   return (
     <div>
       <Header />
-      {mostrarFormulario === true ? <Formulario /> : <></>}
+      {mostrarFormulario === true ? <Formulario registrarColaborador={registrarColaborador}/> : <></>}
       <MiOrganizacion cambiarMostrar={cambiarMostrar} />
       {equipos.map((equipo)=>{
-        return<Equipos datos={equipo} key={equipo.nombreEquipo}/>
+        return<Equipos 
+          datos={equipo} 
+          key={equipo.nombreEquipo}
+          colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.nombreEquipo)}
+        />
       })}
+      <Footer/>
     </div>
   );
 }

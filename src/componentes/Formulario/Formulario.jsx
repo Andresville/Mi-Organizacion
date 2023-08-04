@@ -4,7 +4,7 @@ import CampoTextoFormulario from "../CampoTextoFormulario/CampoTextoFormulario"
 import ListaOpciones from "../ListaOpciones/ListaOpciones"
 import Boton from "../Boton/Boton"
 
-const Formulario = () =>{
+const Formulario = (props) =>{
     const [nombre, setNombre] = useState("")
     const [puesto, setPuesto] = useState("")
     const [foto, setFoto] = useState("")
@@ -18,7 +18,7 @@ const Formulario = () =>{
             foto : foto,
             equipo : equipo
         }
-        console.log(datosAEnviar)
+        props.registrarColaborador(datosAEnviar)
     }
     
     return <section className="formulario">
