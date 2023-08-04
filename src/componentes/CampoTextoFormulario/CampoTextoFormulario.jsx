@@ -1,4 +1,3 @@
-import { useState } from "react"
 import "./CampoTextoFormulario.css"
 
 const CampoTextoFormulario = (props) => {
