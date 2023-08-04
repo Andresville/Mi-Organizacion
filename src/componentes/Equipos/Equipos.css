@@ -1,0 +1,15 @@
+.equipos{
+    width: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 32px;
+}
+
+.equipos h3{
+    display: inline-block;
+    font-weight: 400;
+    color: #212121;
+    border-bottom: 4px solid;
+    padding-bottom: 8px;
+}
